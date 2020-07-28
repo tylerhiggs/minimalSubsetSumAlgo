@@ -37,6 +37,13 @@ class TestImage(unittest.TestCase):
         expected_sum_difference = 0
         s1,s2 = minimalSubsetSumsAlgo.minimalSubsetSumDifference(l)
         self.assertEqual(abs(sum(s1) - sum(s2)), expected_sum_difference)
+        for i in l:
+            if i in s1:
+                self.assertTrue(i not in s2)
+            elif i in s2:
+                self.assertTrue(i not in s1)
+            else:
+                self.assertTrue(False)
                 
 
 
