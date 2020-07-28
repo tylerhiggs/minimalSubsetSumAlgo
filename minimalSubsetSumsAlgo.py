@@ -27,7 +27,9 @@ def minimalSubsetSumDifference(A):
     memo = {}
         
     def x(i,s):
-        if i < len(A):
+        if (i,s) in memo:
+            return memo[(i,s)]
+        elif i < len(A):
             add = abs(x(i + 1, s + A[i]))
             sub = abs(x(i + 1, s - A[i]))
             if add > sub:
@@ -41,7 +43,7 @@ def minimalSubsetSumDifference(A):
             memo[(i,s)] = s
             return s
     
-    print(x(0,0))
+    x(0,0)
     
     next_s = 0
     
@@ -55,5 +57,4 @@ def minimalSubsetSumDifference(A):
         
     return B,C
 
-print(minimalSubsetSumDifference([5,10,15,20,25]))
     
