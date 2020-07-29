@@ -45,6 +45,22 @@ class TestImage(unittest.TestCase):
             else:
                 self.assertTrue(False)
                 
+    def test_subsets(self):
+        l = [7,36,46,40]
+        result_sets = tuple(minimalSubsetSumsAlgo.minimalSubsetSumDifference(l))
+        s1 = {7,46}
+        s2 = {36,40}
+        self.assertTrue(s1 in result_sets)
+        self.assertTrue(s2 in result_sets)
+        
+                
+    def test_subsets_again(self):
+        l = [1,6,5,11]
+        result_sets = tuple(minimalSubsetSumsAlgo.minimalSubsetSumDifference(l))
+        s1 = {1,5,6}
+        s2 = {11}
+        self.assertTrue(s1 in result_sets)
+        self.assertTrue(s2 in result_sets)                       
 
 
 if __name__ == '__main__':
